@@ -20,6 +20,7 @@ namespace Servicios_Academia.Models
         {
             this.Calificaciones = new HashSet<Calificacione>();
             this.Comentarios = new HashSet<Comentario>();
+            this.DetalleInscripcions = new HashSet<DetalleInscripcion>();
             this.Entregas_Tareas = new HashSet<Entregas_Tareas>();
             this.Estudiantes_becados = new HashSet<Estudiantes_becados>();
             this.Foro_Curso = new HashSet<Foro_Curso>();
@@ -34,13 +35,16 @@ namespace Servicios_Academia.Models
         public Nullable<System.DateTime> Fecha_Nacimiento { get; set; }
         public string Telefono { get; set; }
         public string Correo_electronico { get; set; }
-        [JsonIgnore]
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<Calificacione> Calificaciones { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         [JsonIgnore]
         public virtual ICollection<Comentario> Comentarios { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
+        public virtual ICollection<DetalleInscripcion> DetalleInscripcions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         [JsonIgnore]
         public virtual ICollection<Entregas_Tareas> Entregas_Tareas { get; set; }

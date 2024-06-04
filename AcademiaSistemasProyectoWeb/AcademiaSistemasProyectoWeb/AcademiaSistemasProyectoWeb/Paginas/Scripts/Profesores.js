@@ -1,6 +1,7 @@
-﻿jQuery(function () {
+﻿
+jQuery(function () {
     //Registrar los botones para responder al evento click
-    $("#dvMenu").load("../Paginas/Menu.html")
+    $("#dvMenu").load("../Paginas/Menu.html");
 
     //levantaremos el evento click para insertar
     $("#btnInsertar").on("click", function () {
@@ -16,13 +17,36 @@
 
     $("#btnConsultar").on("click", function () {
         Consultar();
-    })
+    });
+
+    LlenarComboCurso();
+    LlenarTablaProfesores();
+   
+
 });
+
+function Editar(Documento, Nombre, PrimerApellido, SegundoApellido, ID_curso, Telefono, Correo_electronico) {
+    $("#txtDocumento").val(Documento);
+    $("#txtNombre").val(Nombre);
+    $("#txtPrimerApellido").val(PrimerApellido);
+    $("#txtSegundoApellido").val(SegundoApellido);
+    $("#txtCorreo").val(Correo_electronico);
+    $("#txtTelefono").val(Telefono);
+    $("#cboCurso").val(ID_curso);
+}
+
+async function LlenarTablaProfesores() {
+    LlenarTablaXServicios("http://localhost:59268/api/Profesores/ListarProfesores", "#tblProfesores");
+}
+
+function LlenarComboCurso() {
+    LlenarComboXServicios("http://localhost:59268/api/Curso/ListarCurso", "#cboCurso");
+}
+
 async function Consultar() {
-    let ProfeID = $("#txtProfeID").val();
-    //invocaremos el fetch-----------------------------------------------
+    let Documento = $("#txtDocumento").val();
     try {
-        const Respuesta = await fetch("http://localhost:59268/api/Profesores?ID_profesor="+ProfeID, {
+        const Respuesta = await fetch("http://localhost:59268/api/Profesores?Documento=" + Documento, {
             method: "GET",
             mode: "cors",//para que tenga permiso en el origen 
             headers: { "Content-Type": "application/json" },
@@ -30,11 +54,12 @@ async function Consultar() {
         // Leer la respuesta y presentarla en el div 
         const Resultado = await Respuesta.json();
         //AL CONSULTAR LA RESPUESTA se muestra en los campos
-        $("#txtProfeID").val(Resultado.ID_profesor);
         $("#txtNombre").val(Resultado.Nombre);
-        $("#txtApellido").val(Resultado.Apellido);
+        $("#txtPrimerApellido").val(Resultado.PrimerApellido);
+        $("#txtSegundoApellido").val(Resultado.SegundoApellido);
+        $("#cboCurso").val(Resultado.ID_Curso);
         $("#txtCorreo").val(Resultado.Correo_electronico);
-        $("#txtEspe").val(Resultado.Especialidad);
+        $("#txtTelefono").val(Resultado.Telefono);
 
     } catch (error) {
         $("#dvMensaje").html(error);//UN MENSAJE EN HTML QUE ME DICE ERROR 
@@ -43,21 +68,23 @@ async function Consultar() {
 
 }
 async function EjecutarComando(Comando) {
-    //para capturar los datos de entrada---------------------------------
-    let ID_profesor = $("#txtProfeID").val();
+    let Documento = $("#txtDocumento").val();
     let Nombre = $("#txtNombre").val();
-    let Apellido = $("#txtApellido").val();
+    let PrimerApellido = $("#txtPrimerApellido").val();
+    let SegundoApellido = $("#txtSegundoApellido").val();
     let Correo_electronico = $("#txtCorreo").val();
-    let Especialidad = $("#txtEspe").val();
-    //estructura json para enviar la inf al servidor---------------------
+    let Telefono = $("#txtTelefono").val();
+    let ID_Curso = $("#cboCurso").val();
+
     let DatosProfe = {
-        ID_profesor: ID_profesor,
+        Documento: Documento,
         Nombre: Nombre,
-        Apellido: Apellido,
+        PrimerApellido: PrimerApellido,
+        SegundoApellido: SegundoApellido,
         Correo_electronico: Correo_electronico,
-        Especialidad: Especialidad,
+        Telefono: Telefono,
+        ID_Curso: ID_Curso,
     }
-    //invocaremos el fetch-----------------------------------------------
     try
     {
         const Respuesta = await fetch("http://localhost:59268/api/Profesores", {
@@ -69,7 +96,10 @@ async function EjecutarComando(Comando) {
         // Leer la respuesta y presentarla en el div 
         const Resultado = await Respuesta.json();
         $("#dvMensaje").html(Resultado);
+        LlenarTablaProfesores();
     }catch (error) {
         $("#dvMensaje").html(error);//UN MENSAJE EN HTML QUE ME DICE ERROR 
     }
+  
+   
 }

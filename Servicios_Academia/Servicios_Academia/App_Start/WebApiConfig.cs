@@ -11,9 +11,10 @@ namespace Servicios_Academia
         {
             // Configuración y servicios de Web API
             config.EnableCors();
+
             // Rutas de Web API
             config.MapHttpAttributeRoutes();
-
+            
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",

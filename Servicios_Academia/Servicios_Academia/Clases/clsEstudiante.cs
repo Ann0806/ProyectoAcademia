@@ -46,26 +46,6 @@ namespace Servicios_Academia.Clases
             return dbAcademia.Estudiantes.FirstOrDefault(p => p.Documento == Documento);
         }
 
-        public List<Estudiante> ConsultarTodos()
-        {
-            return dbAcademia.Estudiantes.ToList();
-        }
-        public IQueryable ListarEstudiantes()
-        {
-            return from I in dbAcademia.Set<Inscripcione>()
-                   join E in dbAcademia.Set<Estudiante>()
-                   on I.Documento_estudiante equals E.Documento
-                   orderby I.Estudiante, E.Nombre
-                   select new
-                   {
-                        IDInscripcion = I.ID_inscripcion,
-                        Documento = I.Documento_estudiante,
-                        Nombre = E.Nombre,
-                        Apellido = E.PrimerApellido,
-                        Correo = E.Correo_electronico,
-                   };
-        }
-
         public string Eliminar()
         {
             Estudiante _Estudiante = Consultar(estudiante.Documento);
@@ -80,6 +60,24 @@ namespace Servicios_Academia.Clases
             {
                 return "No se encontró ningún estudiante con el Documento " + estudiante.Documento;
             }
+        }
+        public IQueryable ListarEstudiantes()
+        {
+            return from E in dbAcademia.Set<Estudiante>()
+                   orderby E.Nombre
+                   select new
+                   {
+                       Editar = "<button type=\"button\" id=\"btnEdit\" class=\"btn-block btn-sm btn-danger\" " +
+                                "onclick=\"Editar('" + E.Documento + "', '" + E.Nombre + "', '" + E.PrimerApellido + "', '" + E.SegundoApellido +
+                                "', '" + E.Fecha_Nacimiento + "', '" + E.Telefono + "', '" + E.Correo_electronico + "')\">EDITAR</button>",
+                       Documento = E.Documento,
+                       Nombre = E.Nombre,
+                       PrimerApellido = E.PrimerApellido,
+                       SegundoApellido = E.SegundoApellido,
+                       Fecha_Nacimiento = E.Fecha_Nacimiento,
+                       Telefono = E.Telefono,
+                       Correo = E.Correo_electronico
+                   };
         }
     }
 }

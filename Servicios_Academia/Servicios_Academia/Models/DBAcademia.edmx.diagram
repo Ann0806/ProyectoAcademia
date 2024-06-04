@@ -4,33 +4,35 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d7ae1b019b444246acb88f8a903c7bf8" Name="Diagram1">
-        <EntityTypeShape EntityType="AcademiaDeSistemasModel.Calificacione" Width="1.5" PointX="5.25" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AcademiaDeSistemasModel.Comentario" Width="1.5" PointX="8.25" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AcademiaDeSistemasModel.Curso_Materias" Width="1.5" PointX="5.25" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="AcademiaDeSistemasModel.Curso" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="AcademiaDeSistemasModel.Entregas_Tareas" Width="1.5" PointX="7.5" PointY="31.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AcademiaDeSistemasModel.Estudiante" Width="1.5" PointX="6" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="AcademiaDeSistemasModel.Estudiantes_becados" Width="1.5" PointX="5.25" PointY="15.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="AcademiaDeSistemasModel.Foro_Curso" Width="1.5" PointX="8.25" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="AcademiaDeSistemasModel.Inscripcione" Width="1.5" PointX="8.25" PointY="15.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AcademiaDeSistemasModel.Materia" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="AcademiaDeSistemasModel.Pago" Width="1.5" PointX="10.5" PointY="16" IsExpanded="true" />
-        <EntityTypeShape EntityType="AcademiaDeSistemasModel.Profesore" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AcademiaDeSistemasModel.Respuestas_Comentarios" Width="1.5" PointX="10.5" PointY="11.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="AcademiaDeSistemasModel.Tarea" Width="1.5" PointX="5.25" PointY="31.75" IsExpanded="true" />
+      <Diagram DiagramId="47921f852a5a48f387dc8764ed54a55a" Name="Diagram1">
+        <EntityTypeShape EntityType="AcademiaDeSistemasModel.Calificacione" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaDeSistemasModel.Comentario" Width="1.5" PointX="6" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaDeSistemasModel.Curso" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaDeSistemasModel.DetalleInscripcion" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaDeSistemasModel.Entregas_Tareas" Width="1.5" PointX="3" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaDeSistemasModel.Estudiante" Width="1.5" PointX="0.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaDeSistemasModel.Estudiantes_becados" Width="1.5" PointX="6" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaDeSistemasModel.Foro_Curso" Width="1.5" PointX="6" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaDeSistemasModel.Inscripcione" Width="1.5" PointX="9" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaDeSistemasModel.Pago" Width="1.5" PointX="11.25" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaDeSistemasModel.Profesore" Width="1.5" PointX="0.75" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaDeSistemasModel.Respuestas_Comentarios" Width="1.5" PointX="11.25" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaDeSistemasModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaDeSistemasModel.Tarea" Width="1.5" PointX="0.75" PointY="20.75" IsExpanded="true" />
         <AssociationConnector Association="AcademiaDeSistemasModel.FK__Calificac__Docum__44FF419A" ManuallyRouted="false" />
         <AssociationConnector Association="AcademiaDeSistemasModel.FK__Calificac__ID_cu__45F365D3" ManuallyRouted="false" />
         <AssociationConnector Association="AcademiaDeSistemasModel.FK__Comentari__Docum__52593CB8" ManuallyRouted="false" />
         <AssociationConnector Association="AcademiaDeSistemasModel.FK__Comentari__ID_cu__534D60F1" ManuallyRouted="false" />
         <AssociationConnector Association="AcademiaDeSistemasModel.FK__Respuesta__ID_co__571DF1D5" ManuallyRouted="false" />
-        <AssociationConnector Association="AcademiaDeSistemasModel.FK__Curso_Mat__ID_cu__4E88ABD4" ManuallyRouted="false" />
-        <AssociationConnector Association="AcademiaDeSistemasModel.FK__Curso_Mat__ID_ma__4F7CD00D" ManuallyRouted="false" />
-        <AssociationConnector Association="AcademiaDeSistemasModel.FK__Cursos__Document__3B75D760" ManuallyRouted="false" />
         <AssociationConnector Association="AcademiaDeSistemasModel.FK__Estudiant__ID_cu__60A75C0F" ManuallyRouted="false" />
         <AssociationConnector Association="AcademiaDeSistemasModel.FK__Foro_Curs__ID_cu__49C3F6B7" ManuallyRouted="false" />
         <AssociationConnector Association="AcademiaDeSistemasModel.FK__Inscripci__ID_cu__3F466844" ManuallyRouted="false" />
         <AssociationConnector Association="AcademiaDeSistemasModel.FK__Tareas__ID_curso__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaDeSistemasModel.fk_curso" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaDeSistemasModel.FK_DetalleInscripcion_Cursos" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaDeSistemasModel.FK_DetalleInscripcion_Estudiantes" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaDeSistemasModel.FK_DetalleInscripcion_Inscripciones" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaDeSistemasModel.FK_DetalleInscripcion_Profesores" ManuallyRouted="false" />
         <AssociationConnector Association="AcademiaDeSistemasModel.FK__Entregas___Docum__5DCAEF64" ManuallyRouted="false" />
         <AssociationConnector Association="AcademiaDeSistemasModel.FK__Entregas___ID_ta__5CD6CB2B" ManuallyRouted="false" />
         <AssociationConnector Association="AcademiaDeSistemasModel.FK__Estudiant__Docum__619B8048" ManuallyRouted="false" />

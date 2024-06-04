@@ -21,6 +21,7 @@ namespace Servicios_Academia.Models
         public Nullable<decimal> Calificacion { get; set; }
         public string Comentario { get; set; }
         public Nullable<System.DateTime> Fecha_calificacion { get; set; }
+    
         [JsonIgnore]
         public virtual Estudiante Estudiante { get; set; }
         [JsonIgnore]

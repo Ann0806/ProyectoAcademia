@@ -20,11 +20,12 @@ namespace Servicios_Academia.Models
         {
             this.Calificaciones = new HashSet<Calificacione>();
             this.Comentarios = new HashSet<Comentario>();
-            this.Curso_Materias = new HashSet<Curso_Materias>();
             this.Estudiantes_becados = new HashSet<Estudiantes_becados>();
             this.Foro_Curso = new HashSet<Foro_Curso>();
             this.Inscripciones = new HashSet<Inscripcione>();
             this.Tareas = new HashSet<Tarea>();
+            this.Profesores = new HashSet<Profesore>();
+            this.DetalleInscripcions = new HashSet<DetalleInscripcion>();
         }
     
         public int ID_curso { get; set; }
@@ -32,20 +33,13 @@ namespace Servicios_Academia.Models
         public string Descripcion { get; set; }
         public Nullable<int> Duracion { get; set; }
         public Nullable<decimal> Costo { get; set; }
-        public Nullable<int> Documento_profesor { get; set; }
-        [JsonIgnore]
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<Calificacione> Calificaciones { get; set; }
-        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<Comentario> Comentarios { get; set; }
-        [JsonIgnore]
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-
-        public virtual ICollection<Curso_Materias> Curso_Materias { get; set; }
-        [JsonIgnore]
-        public virtual Profesore Profesore { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         [JsonIgnore]
         public virtual ICollection<Estudiantes_becados> Estudiantes_becados { get; set; }
@@ -58,5 +52,11 @@ namespace Servicios_Academia.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         [JsonIgnore]
         public virtual ICollection<Tarea> Tareas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
+        public virtual ICollection<Profesore> Profesores { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
+        public virtual ICollection<DetalleInscripcion> DetalleInscripcions { get; set; }
     }
 }

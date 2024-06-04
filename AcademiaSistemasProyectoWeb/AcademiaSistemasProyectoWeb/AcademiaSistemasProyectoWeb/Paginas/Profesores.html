@@ -7,7 +7,10 @@
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link href="Estilos/css/all.min.css" rel="stylesheet" />
-    <link href="Estilos/adminlte.min.css" rel="stylesheet" />
+    <link href="Estilos/adminlte.min.css" rel="stylesheet" />    
+    <!--Estilos para las tablas-->
+    <link href="Estilos/dataTables.min.css" rel="stylesheet" />
+    <link href="Estilos/dataTables.bootstrap4.min.css" rel="stylesheet" />
 </head>
 <body class="hold-transition sidebar-mini">
     <section class="content">
@@ -19,91 +22,126 @@
                 <div class="col-md-12">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">ADMINISTRACION DE PROFESORES</h3>
+                            <h3 class="card-title">GESTIÓN DE PROFESORES</h3>
                         </div>
-                        <form id="frmIncapacidades">
+                        <form id="frmProfesores">
                             <div class="card-body">
                                 <div class="card card-gray-dark">
                                     <div class="card-header">
-                                        <h3 class="card-title">DATOS ENTRADA</h3>
+                                        <h3 class="card-title">DATOS DE ENTRADA</h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtProfeID">ID del profesor</label>
-                                                    <input type="text" class="form-control" id="txtProfeID" placeholder="ID del profesor">
+                                                    <label for="txtDocumento">DOCUMENTO</label>
+                                                    <input type="text" class="form-control" id="txtDocumento" placeholder="Documento del profesor">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtNombre">Nombre del profesor</label>
+                                                    <label for="txtNombre">NOMBRE</label>
                                                     <input type="text" class="form-control" id="txtNombre" placeholder="Nombre del profesor">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtApellido">Apellido del profesor</label>
-                                                    <input type="text" class="form-control" id="txtApellido" placeholder="Apellido del profesor">
+                                                    <label for="txtPrimerApellido">PRIMER APELLIDO</label>
+                                                    <input type="text" class="form-control" id="txtPrimerApellido" placeholder="Primer apellido del profesor">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtCorreo">Correo Electronico</label>
-                                                    <input type="text" class="form-control" id="txtCorreo" placeholder="Correo Electronico">
+                                                    <label for="txtSegundoApellido">SEGUNDO APELLIDO</label>
+                                                    <input type="text" class="form-control" id="txtSegundoApellido" placeholder="Segundo apellido del profesor">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="txtTelefono">TELÉFONO</label>
+                                                    <input type="text" class="form-control" id="txtTelefono" placeholder="Teléfono del profesor">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="cboCurso">Curso</label>
+                                                    <select class="form-control" id="cboCurso">
+                                                        <option value="0">SELECCIONAR</option>
+                                                    </select>
+                                                </div>
+                                            </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="txtEspe">Especialidad</label>
-                                                    <input type="text" class="form-control" id="txtEspe" placeholder="Especialidad">
+                                                    <label for="txtCorreo">CORREO</label>
+                                                    <input type="text" class="form-control" id="txtCorreo" placeholder="Correo del profesor">
                                                 </div>
                                             </div>
 
-                                            <!--<div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="Estado">Estado del curso</label>
-                                                    <select class="form-control" id="cboEstado">
-                                                        <option value="activo">Activo</option>
-                                                        <option value="inactivo">Inactivo</option>
-                                                    </select>
+                                        </div>
+                                        <div class="card card-danger">
+                                            <div class="card-header">
+                                                <h3 class="card-title">PROCESO</h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <br />
+                                                        <button type="button" id="btnInsertar" class="btn-block btn-lg btn-primary">INSERTAR</button>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <br />
+                                                        <button type="button" id="btnActualizar" class="btn-block btn-lg btn-primary">ACTUALIZAR</button>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <br />
+                                                        <button type="button" id="btnEliminar" class="btn-block btn-lg btn-primary">ELIMINAR</button>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <br />
+                                                        <button type="button" id="btnConsultar" class="btn-block btn-lg btn-primary">CONSULTAR</button>
+                                                    </div>
                                                 </div>
-                                            </div>-->
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card card-danger">
+                                <div class="card card-gray-dark">
                                     <div class="card-header">
-                                        <h3 class="card-title">PROCESO</h3>
+                                        <h3 class="card-title">DATOS</h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-md-3">
-                                                <br />
-                                                <button type="button" id="btnInsertar" class="btn-block btn-lg btn-primary">INSERTAR</button>
+                                            <div class="col-md-12">
+                                                <table id="tblProfesores" class="table table-bordered table-striped" style="width:100%;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Documento</th>
+                                                            <th>Nombre</th>
+                                                            <th>Primer Apellido</th>
+                                                            <th>Segundo Apellido</th>
+                                                            <th>Teléfono</th>
+                                                            <th>Correo</th>
+                                                            <th>Curso</th>
+                                                            <th>Editar</th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
                                             </div>
-                                            <div class="col-md-3">
-                                                <br />
-                                                <button type="button" id="btnActualizar" class="btn-block btn-lg btn-primary">ACTUALIZAR</button>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <br />
-                                                <button type="button" id="btnEliminar" class="btn-block btn-lg btn-primary">ELIMINAR</button>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <br />
-                                                <button type="button" id="btnConsultar" class="btn-block btn-lg btn-primary">CONSULTAR</button>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div id="dvMensaje" class=""></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-footer">
-                                <div id="dvMensaje" class=""></div>
-                            </div>
                         </form>
+
                     </div>
                 </div>
             </div>
@@ -111,6 +149,13 @@
     </section>
     <script src="../Scripts/jquery-3.4.1.min.js"></script>
     <script src="../Scripts/bootstrap.bundle.min.js"></script>
+    <!--Tables-->
+    <script src="../Scripts/jquery.dataTables.min.js"></script>
+    <script src="../Scripts/dataTables.bootstrap4.min.js"></script>
+    <!--Archivos comunes-->
+    <script src="Scripts/Comunes/Tablas.js"></script>
+    <script src="Scripts/Comunes/Combos.js"></script>
+    <!--Archivos de la página-->
     <script src="Scripts/Profesores.js"></script>
 </body>
 </html>

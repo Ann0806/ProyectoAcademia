@@ -24,15 +24,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Curso_Materias">
-      <EntityTypeMapping TypeName="AcademiaDeSistemasModel.Curso_Materias">
-        <MappingFragment StoreEntitySet="Curso_Materias">
-          <ScalarProperty Name="ID_relacion" ColumnName="ID_relacion" />
-          <ScalarProperty Name="ID_curso" ColumnName="ID_curso" />
-          <ScalarProperty Name="ID_materia" ColumnName="ID_materia" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Cursos">
       <EntityTypeMapping TypeName="AcademiaDeSistemasModel.Curso">
         <MappingFragment StoreEntitySet="Cursos">
@@ -41,7 +32,19 @@
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
           <ScalarProperty Name="Duracion" ColumnName="Duracion" />
           <ScalarProperty Name="Costo" ColumnName="Costo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetalleInscripcions">
+      <EntityTypeMapping TypeName="AcademiaDeSistemasModel.DetalleInscripcion">
+        <MappingFragment StoreEntitySet="DetalleInscripcion">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="ID_inscripcion" ColumnName="ID_inscripcion" />
+          <ScalarProperty Name="Documento_estudiante" ColumnName="Documento_estudiante" />
           <ScalarProperty Name="Documento_profesor" ColumnName="Documento_profesor" />
+          <ScalarProperty Name="ID_curso" ColumnName="ID_curso" />
+          <ScalarProperty Name="Costo" ColumnName="Costo" />
+          <ScalarProperty Name="Duracion" ColumnName="Duracion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -105,15 +108,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Materias">
-      <EntityTypeMapping TypeName="AcademiaDeSistemasModel.Materia">
-        <MappingFragment StoreEntitySet="Materias">
-          <ScalarProperty Name="ID_materia" ColumnName="ID_materia" />
-          <ScalarProperty Name="Nombre_materia" ColumnName="Nombre_materia" />
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Pagos">
       <EntityTypeMapping TypeName="AcademiaDeSistemasModel.Pago">
         <MappingFragment StoreEntitySet="Pagos">
@@ -133,7 +127,7 @@
           <ScalarProperty Name="SegundoApellido" ColumnName="SegundoApellido" />
           <ScalarProperty Name="Correo_electronico" ColumnName="Correo_electronico" />
           <ScalarProperty Name="Telefono" ColumnName="Telefono" />
-          <ScalarProperty Name="Especialidad" ColumnName="Especialidad" />
+          <ScalarProperty Name="ID_curso" ColumnName="ID_curso" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -145,6 +139,17 @@
           <ScalarProperty Name="ID_comentario" ColumnName="ID_comentario" />
           <ScalarProperty Name="Respuesta" ColumnName="Respuesta" />
           <ScalarProperty Name="Fecha_respuesta" ColumnName="Fecha_respuesta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="AcademiaDeSistemasModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

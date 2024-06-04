@@ -1,6 +1,5 @@
-﻿jQuery(function () {
-
-     //LlenarTablaEstudiantes();
+﻿var oTabla = $("#tblEstudiantes").DataTable();
+jQuery(function () {
 
     $("#dvMenu").load("../Paginas/Menu.html");
     $("#btnInsertar").on("click", function () {
@@ -15,12 +14,26 @@
     $("#btnConsultar").on("click", function () {
         Consultar();
     });
+
+    LlenarTablaEstudiantes();
 });
 
+function Editar(Documento, Nombre, PrimerApellido, SegundoApellido, Fecha_Nacimiento, Telefono, Correo_electronico ) {
+    $("#txtDocumento").val(Documento);
+    $("#txtNombre").val(Nombre);
+    $("#txtPrimerApellido").val(PrimerApellido);
+    $("#txtSegundoApellido").val(SegundoApellido);
+    $("#txtFechaNacimiento").val(Fecha_Nacimiento);
+    $("#txtTelefono").val(Telefono);
+    $("#txtCorreo").val(Correo_electronico);
+   
+}
 
 async function LlenarTablaEstudiantes() {
-    LlenarTablaXServicios("http://localhost:59268/api/Estudiante", "#tblEstudiantes");
+    LlenarTablaXServicios("http://localhost:59268/api/Estudiante/ListarEstudiantes", "#tblEstudiantes");
 }
+
+
 
 async function Consultar() {
 
@@ -76,6 +89,8 @@ async function EjecutarComando(Comando) {
         // Leer la respuesta y presentarla en el div
         const Resultado = await Respuesta.json();
         $("#dvMensaje").html(Resultado);
+        LlenarTablaEstudiantes();
+
     } catch (error) {
         $("#dvMensaje").html(error);
     }

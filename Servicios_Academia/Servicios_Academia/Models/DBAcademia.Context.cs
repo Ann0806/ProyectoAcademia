@@ -9,7 +9,6 @@
 
 namespace Servicios_Academia.Models
 {
-    using Newtonsoft.Json;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
@@ -25,33 +24,20 @@ namespace Servicios_Academia.Models
         {
             throw new UnintentionalCodeFirstException();
         }
-        [JsonIgnore]
+    
         public virtual DbSet<Calificacione> Calificaciones { get; set; }
-        [JsonIgnore]
         public virtual DbSet<Comentario> Comentarios { get; set; }
-        [JsonIgnore]
-        public virtual DbSet<Curso_Materias> Curso_Materias { get; set; }
-        [JsonIgnore]
         public virtual DbSet<Curso> Cursos { get; set; }
-        [JsonIgnore]
+        public virtual DbSet<DetalleInscripcion> DetalleInscripcions { get; set; }
         public virtual DbSet<Entregas_Tareas> Entregas_Tareas { get; set; }
-        [JsonIgnore]
         public virtual DbSet<Estudiante> Estudiantes { get; set; }
-        [JsonIgnore]
         public virtual DbSet<Estudiantes_becados> Estudiantes_becados { get; set; }
-        [JsonIgnore]
         public virtual DbSet<Foro_Curso> Foro_Curso { get; set; }
-        [JsonIgnore]
         public virtual DbSet<Inscripcione> Inscripciones { get; set; }
-        [JsonIgnore]
-        public virtual DbSet<Materia> Materias { get; set; }
-        [JsonIgnore]
         public virtual DbSet<Pago> Pagos { get; set; }
-        [JsonIgnore]
         public virtual DbSet<Profesore> Profesores { get; set; }
-        [JsonIgnore]
         public virtual DbSet<Respuestas_Comentarios> Respuestas_Comentarios { get; set; }
-        [JsonIgnore]
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Tarea> Tareas { get; set; }
     }
 }

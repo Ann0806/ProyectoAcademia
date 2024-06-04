@@ -20,7 +20,6 @@ namespace Servicios_Academia.Models
         public Nullable<int> ID_curso { get; set; }
         public string Mensaje { get; set; }
         public Nullable<System.DateTime> Fecha_publicacion { get; set; }
-
         [JsonIgnore]
         public virtual Curso Curso { get; set; }
         [JsonIgnore]

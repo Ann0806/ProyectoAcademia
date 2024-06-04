@@ -19,7 +19,6 @@ namespace Servicios_Academia.Models
         public Nullable<int> ID_inscripcion { get; set; }
         public Nullable<decimal> Monto { get; set; }
         public Nullable<System.DateTime> Fecha_pago { get; set; }
-
         [JsonIgnore]
         public virtual Inscripcione Inscripcione { get; set; }
     }

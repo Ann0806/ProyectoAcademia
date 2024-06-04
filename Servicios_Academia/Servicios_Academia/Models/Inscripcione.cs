@@ -18,6 +18,7 @@ namespace Servicios_Academia.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Inscripcione()
         {
+            this.DetalleInscripcions = new HashSet<DetalleInscripcion>();
             this.Estudiantes_becados = new HashSet<Estudiantes_becados>();
             this.Pagos = new HashSet<Pago>();
         }
@@ -26,8 +27,12 @@ namespace Servicios_Academia.Models
         public Nullable<int> Documento_estudiante { get; set; }
         public Nullable<int> ID_curso { get; set; }
         public Nullable<System.DateTime> Fecha_inscripcion { get; set; }
+
         [JsonIgnore]
         public virtual Curso Curso { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
+        public virtual ICollection<DetalleInscripcion> DetalleInscripcions { get; set; }
         [JsonIgnore]
         public virtual Estudiante Estudiante { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

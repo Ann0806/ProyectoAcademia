@@ -20,7 +20,6 @@ namespace Servicios_Academia.Models
         public Nullable<int> ID_comentario { get; set; }
         public string Respuesta { get; set; }
         public Nullable<System.DateTime> Fecha_respuesta { get; set; }
-
         [JsonIgnore]
         public virtual Comentario Comentario { get; set; }
         [JsonIgnore]

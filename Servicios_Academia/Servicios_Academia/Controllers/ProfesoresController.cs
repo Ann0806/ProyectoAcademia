@@ -11,24 +11,27 @@ using System.Web.Http.Cors;
 namespace Servicios_Academia.Controllers
 {
     [EnableCors(origins: "http://localhost:63452", headers: "*", methods: "*")]
+    [RoutePrefix("api/Profesores")]
     public class ProfesoresController : ApiController
     {
-        
-        // GET api/<controller>
+        [HttpGet]
+        [Route("")]
         public List<Profesore> Get()
         {
             clsProfesor profe = new clsProfesor();
             return profe.ConsultarTodos();
         }
 
-        // GET api/<controller>/5
-        public Profesore Get(int ID_profesor)
+        [HttpGet]
+        [Route("")]
+        public Profesore Get(int Documento)
         {
             clsProfesor profe = new clsProfesor();
-            return profe.Consultar(ID_profesor);
+            return profe.Consultar(Documento);
         }
 
-        // POST api/<controller>
+        [HttpPost]
+        [Route("")]
         public string Post([FromBody] Profesore profesor)
         {
             clsProfesor profe = new clsProfesor();
@@ -36,7 +39,8 @@ namespace Servicios_Academia.Controllers
             return profe.Insertar();
         }
 
-        // PUT api/<controller>/5
+        [HttpPut]
+        [Route("")]
         public string Put([FromBody] Profesore profesor)
         {
             clsProfesor profe = new clsProfesor();
@@ -44,12 +48,29 @@ namespace Servicios_Academia.Controllers
             return profe.Actualizar();
         }
 
-        // DELETE api/<controller>/5
+        [HttpDelete]
+        [Route("")]
         public string Delete([FromBody] Profesore profesor)
         {
             clsProfesor profe = new clsProfesor();
             profe.profesor = profesor;
             return profe.Eliminar ();
+        }
+
+        [HttpGet]
+        [Route("ListarProfesores")]
+        public IQueryable ListarProfesores()
+        {
+            clsProfesor _profesor = new clsProfesor();
+            return _profesor.ListarProfesores();
+        }
+
+        [HttpGet]
+        [Route("LlenarCombo")]
+        public IQueryable LlenarCombo(int ID_curso)
+        {
+            clsProfesor _profesor = new clsProfesor();
+            return _profesor.LlenarCombo(ID_curso);
         }
     }
 }

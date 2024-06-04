@@ -1,4 +1,4 @@
-﻿// La generación de código T4 está habilitada para el modelo 'D:\1. Biblioteca Usuario\Desktop\Proyecto\Servicios_Academia\Servicios_Academia\Models\DBAcademia.edmx'. 
+﻿// La generación de código T4 está habilitada para el modelo 'D:\1. Biblioteca Usuario\Desktop\ProyectoAcademia\Servicios_Academia\Servicios_Academia\Models\DBAcademia.edmx'. 
 // Para habilitar la generación de código heredada, cambie el valor de la propiedad del diseñador 'Estrategia de generación de código'
 // por 'ObjectContext heredado'. Esta propiedad está disponible en la ventana Propiedades cuando se abre
 // el modelo en el diseñador.

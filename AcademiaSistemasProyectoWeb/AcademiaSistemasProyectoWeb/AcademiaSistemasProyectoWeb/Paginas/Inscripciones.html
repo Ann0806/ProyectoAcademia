@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inscripcion</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link href="Estilos/all.min.css" rel="stylesheet" />
+    <!-- Theme style -->
+    <link href="Estilos/adminlte.min.css" rel="stylesheet" />
+    <!-- Estilos para el datatable -->
+    <link href="Estilos/dataTables.min.css" rel="stylesheet" />
+    <link href="Estilos/dataTables.bootstrap4.min.css" rel="stylesheet" />
+</head>
+<body class="hold-transition sidebar-mini">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-12" id="dvMenu">
+                </div>
+                <div class="col-md-12">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">INSCRIPCION</h3>
+                        </div>
+                        <form id="frmInscripcion">
+                            <div class="card-body">
+                                <div class="card card-gray-dark">
+                                    <div class="card-header">
+                                        <h3 class="card-title">DATOS DE ENTRADA</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label for="txtID_inscripcion">Codigo inscripcion</label>
+                                                    <input type="text" class="form-control" id="txtID_inscripcion" placeholder="ID inscripcion" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="txtDocumento">Documento del estudiante</label>
+                                                    <input type="text" class="form-control" id="txtDocumento" placeholder="Documento del estudiante">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <br />
+                                                <div class="form-group w-100">
+                                                    <button type="button" id="btnBuscar" class="btn btn-block btn-lg btn-success">Buscar</button>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    <label for="txtNombreEstudiante">Nombre del Estudiante</label>
+                                                    <input type="text" class="form-control" id="txtNombreEstudiante" placeholder="Nombre del estudiante" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="cboCurso">Curso</label>
+                                                    <!-- En el combo curso se levanta el evento on change, para que calcule el valor del curso seleccionado -->
+                                                    <select id="cboCurso" class="form-control select2" style="width: 100%;" onchange="LlenarComboProfesor(); PresentarValorCurso()">
+                                                        <option selected="selected" value="0">Seleccione un curso</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="cboProfesor">Profesor</label>
+                                                    <select id="cboProfesor" class="form-control select2" style="width: 100%;">
+                                                        <option selected="selected" value="0">Seleccione un profesor</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label for="txtDuracion">Duracion</label>
+                                                    <input type="number" class="form-control" id="txtDuracion" placeholder="Duracion" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label for="txtCosto">Costo</label>
+                                                    <input type="number" class="form-control" id="txtCosto" placeholder="Costo" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label for="txtFecha_inscripcion">Fecha inscripcion</label>
+                                                    <input type="date" class="form-control" id="txtFecha_inscripcion" placeholder="Fecha inscripcion" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <button type="button" id="btnGrabarInscripcion" class="btn btn-primary btn-block btn-lg" onclick="GrabarInscripciones()">GRABAR INSCRIPCION</button>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <button type="button" id="btnLimpiar" class="btn btn-primary btn-block btn-lg" onclick="Limpiarcampos()">GRABAR INSCRIPCION</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card card-gray-dark">
+                                    <div class="card-header">
+                                        <h3 class="card-title">DATOS</h3>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <table id="tblInscripcion" class="display" style="width:100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Eliminar</th>
+                                                            <th>ID inscripcion</th>
+                                                            <th>Documento</th>
+                                                            <th>Nombre estudiante</th>
+                                                            <th>Curso</th>
+                                                            <th>Duracion</th>
+                                                            <th>Costo</th>
+                                                            <th>Fecha inscripcion</th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div id="dvMensaje" class=""></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="../Scripts/jquery.min.js"></script>
+    <script src="../Scripts/bootstrap.bundle.min.js"></script>
+    <script src="../Scripts/jquery.dataTables.min.js"></script>
+    <script src="../Scripts/dataTables.bootstrap4.min.js"></script>
+    <script src="Scripts/Comunes/Comunes.js"></script>
+    <script src="Scripts/Comunes/Combos.js"></script>
+    <script src="Scripts/Comunes/Tablas.js"></script>
+    <script src="Scripts/Inscripciones.js"></script>
+</body>
+</html>

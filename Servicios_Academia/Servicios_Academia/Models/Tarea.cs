@@ -25,6 +25,7 @@ namespace Servicios_Academia.Models
         public Nullable<int> ID_curso { get; set; }
         public string Descripcion { get; set; }
         public Nullable<System.DateTime> Fecha_entrega { get; set; }
+
         [JsonIgnore]
         public virtual Curso Curso { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
